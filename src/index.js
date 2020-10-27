@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "antd/dist/antd.css";
-import App from "./App";
+import "antd/dist/antd.less";
+import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
@@ -13,9 +13,7 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
       <App />
-    </React.StrictMode>
   </Provider>,
   document.getElementById("root")
 );
