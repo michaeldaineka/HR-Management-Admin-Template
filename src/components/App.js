@@ -6,7 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
-import Login from "../pages/login/login";
+import Login from "../pages/login";
 
 const isAuthenticated = localStorage.getItem("isAuthenticated");
 
@@ -14,19 +14,22 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path={"/"} exact>
-          <Layout />
-        </Route>
+        <PublicRoute path={"/login"} exact component={Login} />
+        <PrivateRoute path={"/"} component={Layout} />
       </Switch>
     </Router>
   );
 }
 
-const CustomRoute = ({ component: Component, ...props }) => {
+const PrivateRoute = ({ ...props }) => {
   return (
-    <>
-      {isAuthenticated ? <Component {...props} /> : <Redirect to={"/login"} />}
-    </>
+    <>{isAuthenticated ? <Route {...props} /> : <Redirect to={"/login"} />}</>
+  );
+};
+
+const PublicRoute = ({ ...props }) => {
+  return (
+      <>{isAuthenticated ? <Redirect to={"/"} /> : <Route {...props} />}</>
   );
 };
 
