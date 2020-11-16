@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     palette: {
         primary: '#0095FF',
         secondary: "#FF3D71",

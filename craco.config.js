@@ -1,5 +1,5 @@
 const CracoLessPlugin = require("craco-less");
-import colors from "./src/theme/primary";
+const colors = require("./src/theme/primary");
 
 module.exports = {
   plugins: [
