@@ -1,12 +1,6 @@
 import React from "react";
-import { LoginSection } from "./LoginView";
-import { Typography } from "antd";
+import { Button } from "antd";
 
 export default () => {
-  const { Text } = Typography;
-  return (
-    <LoginSection>
-      <Text>Login page</Text>
-    </LoginSection>
-  );
+  return <Button>Login page</Button>;
 };
