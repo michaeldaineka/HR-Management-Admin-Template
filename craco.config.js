@@ -1,4 +1,7 @@
 const CracoLessPlugin = require("craco-less");
+const CracoAlias = require("craco-alias");
+
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   plugins: [
@@ -22,7 +25,9 @@ module.exports = {
           return lessRule;
         },
         cssLoaderOptions: {
-          modules: true,
+          modules: {
+            localIdentName: isProd ? "[hash:base64]" : "[path][name]__[local]--[hash:base64:5]",
+          },
         },
         lessLoaderOptions: {
           lessOptions: {
@@ -31,5 +36,20 @@ module.exports = {
         },
       }
     },
+    {
+      plugin: CracoAlias,
+      options: {
+        source: "options",
+        baseUrl: "./src",
+        aliases: {
+          "images": "./images",
+          "components": "./components",
+          "pages": "./pages",
+          "styles": "./styles",
+          "actions": "./actions",
+          "reducers": "./reducers"
+        }
+      }
+    }
   ],
 };

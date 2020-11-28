@@ -12,12 +12,12 @@ const isAuthenticated = localStorage.getItem("isAuthenticated");
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <PublicRoute path={"/login"} exact component={Login} />
-        <PrivateRoute path={"/"} component={Layout} />
-      </Switch>
-    </Router>
+      <Router>
+        <Switch>
+          <PublicRoute path={"/login"} exact component={Login} />
+          <PrivateRoute path={"/"} component={Layout} />
+        </Switch>
+      </Router>
   );
 }
 
@@ -28,9 +28,7 @@ const PrivateRoute = ({ ...props }) => {
 };
 
 const PublicRoute = ({ ...props }) => {
-  return (
-      <>{isAuthenticated ? <Redirect to={"/"} /> : <Route {...props} />}</>
-  );
+  return <>{isAuthenticated ? <Redirect to={"/"} /> : <Route {...props} />}</>;
 };
 
 export default App;
