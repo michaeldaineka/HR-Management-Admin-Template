@@ -1,5 +1,22 @@
 // Tabs
 
-.ant-tabs-content-holder {
-  order: 1 !important;
+.ant-tabs-bottom {
+  & > .ant-tabs-content-holder,
+  .ant-tabs-bottom > div > .ant-tabs-content-holder {
+    order: 1;
+  }
+  & > .ant-tabs-nav,
+  .ant-tabs-bottom > div > .ant-tabs-nav {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  .ant-tabs-tab {
+    &.ant-tabs-tab-active .ant-tabs-tab-btn {
+      color: @text-color;
+      font-weight: normal;
+    }
+    &:not(:hover) {
+      color: @text-color-secondary;
+    }
+  }
 }
