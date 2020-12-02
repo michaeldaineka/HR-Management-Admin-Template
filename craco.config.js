@@ -36,20 +36,20 @@ module.exports = {
         },
       }
     },
-    {
-      plugin: CracoAlias,
-      options: {
-        source: "options",
-        baseUrl: "./src",
-        aliases: {
-          "images": "./images",
-          "components": "./components",
-          "pages": "./pages",
-          "styles": "./styles",
-          "actions": "./actions",
-          "reducers": "./reducers"
-        }
-      }
-    }
+    // {
+    //   plugin: CracoAlias,
+    //   options: {
+    //     source: "options",
+    //     baseUrl: "./src",
+    //     aliases: {
+    //       "images": "./images",
+    //       "components": "./components",
+    //       "pages": "./pages",
+    //       "styles": "./styles",
+    //       "actions": "./actions",
+    //       "reducers": "./reducers"
+    //     }
+    //   }
+    // }
   ],
 };
