@@ -4,10 +4,9 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import {useSelector} from 'react-redux'
 import Layout from "../components/Layout/Layout";
 import Login from "../pages/login";
-
-const isAuthenticated = localStorage.getItem("isAuthenticated");
 
 function App() {
   return (
@@ -20,6 +19,8 @@ function App() {
 }
 
 const CustomRoute = ({ ...props }) => {
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+
   return isAuthenticated ? (
     <Route {...props} component={Layout} />
   ) : (

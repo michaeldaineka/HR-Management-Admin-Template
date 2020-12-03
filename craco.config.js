@@ -1,5 +1,4 @@
 const CracoLessPlugin = require("craco-less");
-const CracoAlias = require("craco-alias");
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -36,20 +35,5 @@ module.exports = {
         },
       }
     },
-    // {
-    //   plugin: CracoAlias,
-    //   options: {
-    //     source: "options",
-    //     baseUrl: "./src",
-    //     aliases: {
-    //       "images": "./images",
-    //       "components": "./components",
-    //       "pages": "./pages",
-    //       "styles": "./styles",
-    //       "actions": "./actions",
-    //       "reducers": "./reducers"
-    //     }
-    //   }
-    // }
   ],
 };

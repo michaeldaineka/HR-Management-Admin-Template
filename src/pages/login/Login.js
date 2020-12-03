@@ -12,12 +12,15 @@ import {
 } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import {useDispatch} from 'react-redux'
+import {userLoginAsync} from 'actions/user'
 import s from "./Login.module.less";
 import logo from "images/logo.svg";
 
 export default () => {
   const { TabPane } = Tabs;
   const { Title } = Typography;
+  const dispatch = useDispatch();
   return (
     <Row>
       <Col xs={24} md={12}>
@@ -32,7 +35,7 @@ export default () => {
               <Form
                 name="basic"
                 initialValues={{ remember: true }}
-                onFinish={() => alert("kek")}
+                onFinish={() => dispatch(userLoginAsync())}
                 onFinishFailed={() => {}}
                 style={{ width: 300, maxWidth: "100%" }}
               >
