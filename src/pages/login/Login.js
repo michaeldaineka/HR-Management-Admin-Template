@@ -12,8 +12,8 @@ import {
 } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import {useDispatch} from 'react-redux'
-import {userLoginAsync} from 'actions/user'
+import { useDispatch, useSelector } from "react-redux";
+import { userLoginAsync } from "actions/user";
 import s from "./Login.module.less";
 import logo from "images/logo.svg";
 
@@ -21,6 +21,7 @@ export default () => {
   const { TabPane } = Tabs;
   const { Title } = Typography;
   const dispatch = useDispatch();
+  const isFetching = useSelector(store => store.auth.isFetching)
   return (
     <Row>
       <Col xs={24} md={12}>
@@ -68,7 +69,7 @@ export default () => {
                   </Link>
                 </Form.Item>
                 <Form.Item>
-                  <Button type={"primary"} block htmlType={"submit"}>
+                  <Button type={"primary"} block htmlType={"submit"} loading={isFetching}>
                     Log In
                   </Button>
                 </Form.Item>
@@ -76,33 +77,33 @@ export default () => {
             </TabPane>
             <TabPane tab="Register" key="2">
               <Form
-                  name="basic"
-                  initialValues={{ remember: true }}
-                  onFinish={() => alert("kek")}
-                  onFinishFailed={() => {}}
-                  style={{ width: 300, maxWidth: "100%" }}
+                name="basic"
+                initialValues={{ remember: true }}
+                onFinish={() => alert("kek")}
+                onFinishFailed={() => {}}
+                style={{ width: 300, maxWidth: "100%" }}
               >
                 <Form.Item
-                    name="fullname"
-                    rules={[{ required: true, message: " " }]}
+                  name="fullname"
+                  rules={[{ required: true, message: " " }]}
                 >
                   <Input placeholder="Full Name" />
                 </Form.Item>
                 <Form.Item
-                    name="email"
-                    rules={[{ required: true, message: " ", type: "email" }]}
+                  name="email"
+                  rules={[{ required: true, message: " ", type: "email" }]}
                 >
-                  <Input placeholder="Full Name" />
+                  <Input placeholder="Email" />
                 </Form.Item>
                 <Form.Item
-                    name="password"
-                    rules={[{ required: true, message: " " }]}
+                  name="password"
+                  rules={[{ required: true, message: " " }]}
                 >
                   <Input.Password
-                      placeholder="Password"
-                      iconRender={(visible) =>
-                          visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-                      }
+                    placeholder="Password"
+                    iconRender={(visible) =>
+                      visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                    }
                   />
                 </Form.Item>
                 <Form.Item>

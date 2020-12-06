@@ -19,7 +19,7 @@ function App() {
 }
 
 const CustomRoute = ({ ...props }) => {
-  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated) || localStorage.getItem('isAuthenticated')
 
   return isAuthenticated ? (
     <Route {...props} component={Layout} />
