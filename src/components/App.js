@@ -1,30 +1,31 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import {useSelector} from 'react-redux'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Layout from "../components/Layout/Layout";
 import Login from "../pages/login";
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <CustomRoute path={"/"} />
-      </Switch>
+      <CustomRoute path={"/"} />
     </Router>
   );
 }
 
 const CustomRoute = ({ ...props }) => {
-  const isAuthenticated = useSelector(state => state.auth.isAuthenticated) || localStorage.getItem('isAuthenticated')
+  const isAuthenticated =
+    useSelector((state) => state.auth.isAuthenticated) ||
+    localStorage.getItem("isAuthenticated");
 
   return isAuthenticated ? (
-    <Route {...props} component={Layout} />
+    <Switch>
+      <Route {...props} component={Layout} />
+    </Switch>
   ) : (
-    <Route {...props} component={Login} />
+    <Switch>
+      <Route path={"/"} exact component={Login} />
+      <Route render={() => <h3>error login</h3>} />
+    </Switch>
   );
 };
 

@@ -18,10 +18,24 @@ import s from "./Login.module.less";
 import logo from "images/logo.svg";
 
 export default () => {
+  const [ form ] = Form.useForm();
   const { TabPane } = Tabs;
   const { Title } = Typography;
   const dispatch = useDispatch();
-  const isFetching = useSelector(store => store.auth.isFetching)
+  const isFetching = useSelector((store) => store.auth.isFetching);
+
+  const handleValidate = () => {
+    form.validateFields().then(
+        values => {
+          if (!values.fullname.test(/ /)) {
+            throw new Error('adawd')
+          }
+        }
+    ).catch((e) => {
+      console.log(e)
+    })
+  }
+
   return (
     <Row>
       <Col xs={24} md={12}>
@@ -69,7 +83,12 @@ export default () => {
                   </Link>
                 </Form.Item>
                 <Form.Item>
-                  <Button type={"primary"} block htmlType={"submit"} loading={isFetching}>
+                  <Button
+                    type={"primary"}
+                    block
+                    htmlType={"submit"}
+                    loading={isFetching}
+                  >
                     Log In
                   </Button>
                 </Form.Item>
@@ -82,12 +101,13 @@ export default () => {
                 onFinish={() => alert("kek")}
                 onFinishFailed={() => {}}
                 style={{ width: 300, maxWidth: "100%" }}
+                form={form}
               >
                 <Form.Item
                   name="fullname"
                   rules={[{ required: true, message: " " }]}
                 >
-                  <Input placeholder="Full Name" />
+                  <Input placeholder="Full Name" onChange={handleValidate} />
                 </Form.Item>
                 <Form.Item
                   name="email"
