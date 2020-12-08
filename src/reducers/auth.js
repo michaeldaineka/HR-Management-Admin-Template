@@ -2,7 +2,7 @@ import { USER_LOGIN, USER_LOGIN_REQUEST } from "actions/user";
 
 const appReducer = (
   state = {
-    isAuthenticated: localStorage.getItem("token"),
+    isAuthenticated: !!localStorage.getItem("isAuthenticated"),
     isFetching: false,
   },
   action

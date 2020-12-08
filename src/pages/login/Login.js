@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Input,
@@ -18,30 +18,34 @@ import s from "./Login.module.less";
 import logo from "images/logo.svg";
 
 export default () => {
-  const [ form ] = Form.useForm();
+  const [form] = Form.useForm();
   const { TabPane } = Tabs;
   const { Title } = Typography;
   const dispatch = useDispatch();
   const isFetching = useSelector((store) => store.auth.isFetching);
+  const [activeKey, setActiveKey] = useState("1");
 
-  const handleValidate = () => {
-    form.validateFields().then(
-        values => {
-          if (!values.fullname.test(/ /)) {
-            throw new Error('adawd')
-          }
-        }
-    ).catch((e) => {
-      console.log(e)
-    })
-  }
+  const handleValidateName = (rule, value) => {
+    if (!/ /.test(value)) {
+      return Promise.reject();
+    }
+    return Promise.resolve();
+  };
+
+  const handleValidatePassword = (rule, value) => {
+    if (value === form.getFieldsValue().password && value !== undefined) {
+      return Promise.resolve();
+    }
+    return Promise.reject();
+  };
 
   return (
     <Row>
       <Col xs={24} md={12}>
         <section className={s.loginSection}>
           <Tabs
-            defaultActiveKey="1"
+            activeKey={activeKey}
+            onChange={(tabNum) => setActiveKey(tabNum)}
             tabPosition={"bottom"}
             centered
             style={{ overflow: "visible" }}
@@ -51,7 +55,6 @@ export default () => {
                 name="basic"
                 initialValues={{ remember: true }}
                 onFinish={() => dispatch(userLoginAsync())}
-                onFinishFailed={() => {}}
                 style={{ width: 300, maxWidth: "100%" }}
               >
                 <Form.Item
@@ -98,16 +101,24 @@ export default () => {
               <Form
                 name="basic"
                 initialValues={{ remember: true }}
-                onFinish={() => alert("kek")}
-                onFinishFailed={() => {}}
+                onFinish={() => {
+                  setActiveKey("1");
+                  form.resetFields();
+                }}
                 style={{ width: 300, maxWidth: "100%" }}
                 form={form}
               >
                 <Form.Item
                   name="fullname"
-                  rules={[{ required: true, message: " " }]}
+                  rules={[
+                    {
+                      required: true,
+                      message: " ",
+                      validator: handleValidateName,
+                    },
+                  ]}
                 >
-                  <Input placeholder="Full Name" onChange={handleValidate} />
+                  <Input placeholder="Full Name" />
                 </Form.Item>
                 <Form.Item
                   name="email"
@@ -121,6 +132,23 @@ export default () => {
                 >
                   <Input.Password
                     placeholder="Password"
+                    iconRender={(visible) =>
+                      visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                    }
+                  />
+                </Form.Item>
+                <Form.Item
+                  name="repeatPassword"
+                  rules={[
+                    {
+                      required: true,
+                      message: " ",
+                      validator: handleValidatePassword,
+                    },
+                  ]}
+                >
+                  <Input.Password
+                    placeholder="Repeat Password"
                     iconRender={(visible) =>
                       visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                     }

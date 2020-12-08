@@ -14,8 +14,7 @@ function App() {
 
 const CustomRoute = ({ ...props }) => {
   const isAuthenticated =
-    useSelector((state) => state.auth.isAuthenticated) ||
-    localStorage.getItem("isAuthenticated");
+    useSelector((state) => state.auth.isAuthenticated)
 
   return isAuthenticated ? (
     <Switch>
