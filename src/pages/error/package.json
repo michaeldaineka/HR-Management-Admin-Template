@@ -1,6 +1,6 @@
 {
-  "name": "login",
+  "name": "error",
   "version": "1.0.0",
-  "main": "Login.js",
+  "main": "Error.js",
   "license": "MIT"
 }

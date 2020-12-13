@@ -14,10 +14,10 @@ import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoginAsync } from "actions/user";
-import s from "./Login.module.less";
+import s from "./Auth.module.less";
 import logo from "images/logo.svg";
 
-export default () => {
+const Auth = () => {
   const [form] = Form.useForm();
   const { TabPane } = Tabs;
   const { Title } = Typography;
@@ -26,7 +26,7 @@ export default () => {
   const [activeKey, setActiveKey] = useState("1");
 
   const handleValidateName = (rule, value) => {
-    if (!/ /.test(value)) {
+    if (!/ \w+/.test(value)) {
       return Promise.reject();
     }
     return Promise.resolve();
@@ -177,3 +177,5 @@ export default () => {
     </Row>
   );
 };
+
+export default Auth;

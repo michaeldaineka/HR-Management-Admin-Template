@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Layout from "../components/Layout/Layout";
-import Login from "../pages/login";
+import Layout from "components/Layout/Layout";
+import Auth from "pages/auth";
+import Error from 'pages/error'
 
 function App() {
   return (
@@ -22,8 +23,8 @@ const CustomRoute = ({ ...props }) => {
     </Switch>
   ) : (
     <Switch>
-      <Route path={"/"} exact component={Login} />
-      <Route render={() => <h3>error login</h3>} />
+      <Route path={"/"} exact component={Auth} />
+      <Route component={Error} />
     </Switch>
   );
 };
