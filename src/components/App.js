@@ -1,9 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Router, Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Layout from "components/Layout/Layout";
 import Auth from "pages/auth";
-import Error from 'pages/error'
+import Error from "pages/error";
 
 function App() {
   return (
@@ -14,8 +14,7 @@ function App() {
 }
 
 const CustomRoute = ({ ...props }) => {
-  const isAuthenticated =
-    useSelector((state) => state.auth.isAuthenticated)
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   return isAuthenticated ? (
     <Switch>
@@ -23,7 +22,7 @@ const CustomRoute = ({ ...props }) => {
     </Switch>
   ) : (
     <Switch>
-      <Route path={"/"} exact component={Auth} />
+      <Route {...props} exact component={Auth} />
       <Route component={Error} />
     </Switch>
   );
