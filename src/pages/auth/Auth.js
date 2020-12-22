@@ -81,7 +81,7 @@ const Auth = () => {
                     <Checkbox>Remember me</Checkbox>
                   </Form.Item>
 
-                  <Link to="/" style={{ float: "right" }}>
+                  <Link to="/forgot" style={{ float: "right" }}>
                     Forgot password
                   </Link>
                 </Form.Item>
