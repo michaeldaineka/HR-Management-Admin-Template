@@ -13,10 +13,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
     .logo {
       border-radius: 8px;
       width: 34px;
       height: 34px;
+    }
+    &List {
+      padding-inline-start: 0;
+      margin-bottom: 0;
+      padding-top: 30px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      li {
+        list-style: none;
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+        &:not(.navbarListBottom) + .navbarListBottom {
+          margin-top: auto;
+        }
+        .avatar {
+          border: 1px solid @white;
+          border-radius: 50%;
+        }
+      }
+      .icon {
+        path {
+          fill: @white;
+          opacity: 0.6;
+        }
+      }
     }
   }
   .menu {
