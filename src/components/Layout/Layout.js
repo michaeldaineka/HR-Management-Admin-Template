@@ -1,22 +1,21 @@
 import React from "react";
 import { useHistory, useLocation, Link, Switch, Route } from "react-router-dom";
-import s from './Layout.module.less'
+import s from "./Layout.module.less";
 import Sidebar from "components/Sidebar";
-import Error from "pages/error";
+import layoutSchema, { routes } from "./layoutSchema";
 
 export default () => {
+  const location = useLocation();
+  console.log(routes)
   return (
     <>
-      <Sidebar />
+      {routes.includes(location.pathname) ? <Sidebar /> : null}
       <main className={s.content}>
         <Switch>
-          <Route path={"/"} exact render={() => <h1>Main page</h1>} />
-          <Route
-            path={"/dashboard"}
-            exact
-            render={() => <h1>Dashboard page</h1>}
-          />
-          <Route component={Error} />
+          {layoutSchema.map((item) => (
+            <Route {...item} key={item.path} />
+          ))}
+          )}
         </Switch>
       </main>
     </>

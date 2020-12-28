@@ -14,22 +14,27 @@ export default [
     {
       icon: <SearchIcon />,
       alt: "search",
+      link: '/search'
     },
     {
       icon: <CalendarIcon />,
       alt: "calendar",
+      link: '/calendar'
     },
     {
       icon: <PersonIcon />,
       alt: "contact",
+      link: '/contact'
     },
     {
       icon: <FriendsIcon />,
       alt: "friends group",
+      link: '/friends'
     },
     {
       icon: <FileIcon />,
       alt: "file manager",
+      link: '/file'
     },
   ],
   [
