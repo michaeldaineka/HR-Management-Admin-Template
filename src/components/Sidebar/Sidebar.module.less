@@ -49,6 +49,37 @@
   .menu {
     width: 184px;
     background-color: @white;
-    padding-top: 30px;
+    padding-top: 31px;
+    padding-left: 15px;
+    overflow: auto;
+    &List {
+      padding-inline-start: 0;
+      margin-bottom: 0;
+      margin-top: 35px;
+      .text {
+        color: #8F9BB3;
+      }
+      li {
+        list-style: none;
+        margin-bottom: 8px;
+      }
+      .btn {
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        &:focus, &:hover {
+          background-color: transparent;
+        }
+      }
+      .icon {
+        path {
+          fill: #8F9BB3;
+        }
+        svg {
+          margin-right: 10px;
+          margin-left: -3px;
+        }
+      }
+    }
   }
 }
