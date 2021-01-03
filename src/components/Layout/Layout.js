@@ -2,14 +2,13 @@ import React from "react";
 import { useHistory, useLocation, Link, Switch, Route } from "react-router-dom";
 import s from "./Layout.module.less";
 import Sidebar from "components/Sidebar";
-import layoutSchema, { routes } from "./layoutSchema";
+import layoutSchema, { layoutRoutes } from "./layoutSchema";
 
 export default () => {
   const location = useLocation();
-  console.log(routes)
   return (
-    <>
-      {routes.includes(location.pathname) ? <Sidebar /> : null}
+    <div className={s.layout}>
+      {layoutRoutes.includes(location.pathname) ? <Sidebar /> : null}
       <main className={s.content}>
         <Switch>
           {layoutSchema.map((item) => (
@@ -18,6 +17,6 @@ export default () => {
           )}
         </Switch>
       </main>
-    </>
+    </div>
   );
 };

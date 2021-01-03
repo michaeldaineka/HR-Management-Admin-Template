@@ -1,11 +1,36 @@
 import React from "react";
 import Error from "pages/error";
+import {Card} from 'antd'
 
 const schema = [
   {
     path: "/",
     exact: true,
-    render: () => <h1>Main page</h1>,
+    render: () => (
+        <>
+          <Card>
+            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
+          </Card>
+          <Card>
+            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
+          </Card>
+          <Card>
+            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
+          </Card>
+          <Card>
+            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
+          </Card>
+          <Card>
+            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
+          </Card>
+          <Card>
+            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
+          </Card>
+          <Card>
+            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
+          </Card>
+          </>
+    ),
   },
   {
     path: "/dash",
@@ -19,7 +44,7 @@ const schema = [
 
 export default schema;
 
-export const routes = (function () {
+export const layoutRoutes = (function () {
    return schema.map((item) => {
     return item = item.path
   });

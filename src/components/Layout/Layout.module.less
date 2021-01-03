@@ -1,5 +1,15 @@
 @import "styles/app";
 
-.content {
-  padding: 30px 30px 30px 240px;
+.layout {
+  display: flex;
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    width: 100%;
+    :global(.error) {
+      margin: -30px;
+      width: calc(100% + 60px)
+    }
+  }
 }

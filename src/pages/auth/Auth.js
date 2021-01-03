@@ -42,7 +42,7 @@ const Auth = () => {
   return (
     <Row>
       <Col xs={24} md={12}>
-        <section className={s.loginSection}>
+        <div className={s.loginSection}>
           <Tabs
             activeKey={activeKey}
             onChange={(tabNum) => setActiveKey(tabNum)}
@@ -162,17 +162,17 @@ const Auth = () => {
               </Form>
             </TabPane>
           </Tabs>
-        </section>
+        </div>
       </Col>
       <Col xs={24} md={12}>
-        <section className={s.infoSection}>
+        <div className={s.infoSection}>
           <Space direction={"vertical"} align={"center"} size={"large"}>
             <img src={logo} alt={"MoveUp"} />
             <Title level={2} className={s.title}>
               HR Management Admin Template
             </Title>
           </Space>
-        </section>
+        </div>
       </Col>
     </Row>
   );

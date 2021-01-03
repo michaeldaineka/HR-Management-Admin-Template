@@ -8,7 +8,7 @@ const Error = () => {
   const { Title } = Typography;
   const history = useHistory();
   return (
-    <section className={s.errorPage}>
+    <div className={`${s.errorPage} error`}>
       <Card>
         <Space direction={"vertical"} align={"center"}>
           <Title className={s.title}>404</Title>
@@ -21,7 +21,7 @@ const Error = () => {
           </Button>
         </Space>
       </Card>
-    </section>
+    </div>
   );
 };
 
