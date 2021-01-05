@@ -1,13 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import s from "./Sidebar.module.less";
 import logo from "images/logo.svg";
 import textLogo from "images/text-logo.svg";
 import { Button, Typography } from "antd";
+import cn from "classnames";
 import navbarSchema from "./schema/navbarSchema";
 import menuSchema from "./schema/menuSchema";
 
 const Sidebar = () => {
+  const location = useLocation();
   const { Text } = Typography;
   return (
     <aside className={s.sidebar}>
@@ -17,7 +19,13 @@ const Sidebar = () => {
           {navbarSchema[0].map((item) => (
             <li key={item.alt}>
               <Link to={item.link}>
-                <Button type="text" icon={item.icon} className={s.icon} />
+                <Button
+                  type="text"
+                  icon={item.icon}
+                  className={cn(s.icon, {
+                    [s.active]: location.pathname === item.link,
+                  })}
+                />
               </Link>
             </li>
           ))}
@@ -32,7 +40,9 @@ const Sidebar = () => {
                     <img src={item.img} alt={item.alt} className={s.avatar} />
                   )
                 }
-                className={s.icon}
+                className={cn(s.icon, {
+                    [s.active]: location.pathname === item.link,
+                })}
               />
             </li>
           ))}
@@ -47,9 +57,17 @@ const Sidebar = () => {
                 <Button
                   type="text"
                   icon={item.icon}
-                  className={`${s.icon} ${s.btn}`}
+                  className={cn(s.icon, s.btn, {
+                    [s.active]: location.pathname === item.link,
+                  })}
                 >
-                  <Text className={s.text}>{item.alt}</Text>
+                  <Text
+                    className={cn(s.text, {
+                      [s.active]: location.pathname === item.link,
+                    })}
+                  >
+                    {item.alt}
+                  </Text>
                 </Button>
               </Link>
             </li>

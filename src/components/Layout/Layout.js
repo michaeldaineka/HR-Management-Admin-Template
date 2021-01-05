@@ -1,10 +1,10 @@
 import React from "react";
-import { useHistory, useLocation, Link, Switch, Route } from "react-router-dom";
+import { useLocation, Switch, Route } from "react-router-dom";
 import s from "./Layout.module.less";
 import Sidebar from "components/Sidebar";
 import layoutSchema, { layoutRoutes } from "./layoutSchema";
 
-export default () => {
+const Layout = () => {
   const location = useLocation();
   return (
     <div className={s.layout}>
@@ -20,3 +20,5 @@ export default () => {
     </div>
   );
 };
+
+export default Layout;

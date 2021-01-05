@@ -1,41 +1,22 @@
 import React from "react";
 import Error from "pages/error";
-import {Card} from 'antd'
+import Dashboard from "pages/dashboard";
 
 const schema = [
   {
     path: "/",
     exact: true,
-    render: () => (
-        <>
-          <Card>
-            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
-          </Card>
-          <Card>
-            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
-          </Card>
-          <Card>
-            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
-          </Card>
-          <Card>
-            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
-          </Card>
-          <Card>
-            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
-          </Card>
-          <Card>
-            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
-          </Card>
-          <Card>
-            <p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p><p>aowdkawodk</p>
-          </Card>
-          </>
-    ),
+    component: Dashboard,
   },
   {
-    path: "/dash",
+    path: "/people",
     exact: true,
-    render: () => <h1>dash</h1>,
+    render: () => <h1>people</h1>,
+  },
+  {
+    path: "/search",
+    exact: true,
+    render: () => <h1>search</h1>,
   },
   {
     component: Error,
