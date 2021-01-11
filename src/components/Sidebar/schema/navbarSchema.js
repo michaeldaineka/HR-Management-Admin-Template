@@ -13,42 +13,42 @@ export default [
   [
     {
       icon: <SearchIcon />,
-      alt: "search",
+      alt: "Search",
       link: '/search'
     },
     {
       icon: <CalendarIcon />,
-      alt: "calendar",
+      alt: "Calendar",
       link: '/calendar'
     },
     {
       icon: <PersonIcon />,
-      alt: "contact",
+      alt: "Contact",
       link: '/contact'
     },
     {
       icon: <FriendsIcon />,
-      alt: "friends group",
+      alt: "Friends Group",
       link: '/friends'
     },
     {
       icon: <FileIcon />,
-      alt: "file manager",
-      link: '/file'
+      alt: "File Manager",
+      link: '/files'
     },
   ],
   [
     {
       icon: <SettingsIcon />,
-      alt: "settings",
+      alt: "Settings",
     },
     {
       img: avatarImg,
-      alt: "account",
+      alt: "Account",
     },
     {
       icon: <BarIcon />,
-      alt: "bar",
+      alt: "Bar",
     },
   ],
 ];

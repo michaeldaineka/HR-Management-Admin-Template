@@ -1,0 +1,29 @@
+import React from "react";
+import s from "./Header.module.less";
+import { useLocation } from "react-router-dom";
+import {Typography} from "antd";
+import menuSchema from "../Sidebar/schema/menuSchema";
+import navbarSchema from "../Sidebar/schema/navbarSchema";
+
+const allSchemas = Array.prototype.concat(menuSchema, navbarSchema);
+allSchemas.forEach((item, index, arr) => {
+    if (Array.isArray(item)) {
+        allSchemas.push(...item);
+        allSchemas.splice(index, 1, []);
+        console.log('kek')
+    }
+});
+
+const Header = () => {
+    const {Title} = Typography;
+  const location = useLocation();
+  return (
+    <header className={s.header}>
+      {allSchemas.map(
+        (item) => location.pathname === item.link && <Title level={4} className={s.title}>{item.alt}</Title>
+      )}
+    </header>
+  );
+};
+
+export default Header;
