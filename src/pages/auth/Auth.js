@@ -8,8 +8,8 @@ import {
   Space,
   Typography,
   Form,
-  Checkbox,
 } from "antd";
+import Checkbox from 'components/Checkbox'
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

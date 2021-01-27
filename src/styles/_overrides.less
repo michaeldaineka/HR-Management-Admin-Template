@@ -1,12 +1,12 @@
 // Tabs
 
-.ant-tabs-bottom {
+.ant-tabs {
   & > .ant-tabs-content-holder,
-  .ant-tabs-bottom > div > .ant-tabs-content-holder {
+  .ant-tabs > div > .ant-tabs-content-holder {
     order: 1;
   }
   & > .ant-tabs-nav,
-  .ant-tabs-bottom > div > .ant-tabs-nav {
+  .ant-tabs > div > .ant-tabs-nav {
     margin-top: 0;
     margin-bottom: 16px;
   }
@@ -20,3 +20,14 @@
     }
   }
 }
+
+// Select
+
+.ant-select-dropdown {
+  border-radius: @border-radius-sm;
+}
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  border-radius: @border-radius-sm;
+}
+
